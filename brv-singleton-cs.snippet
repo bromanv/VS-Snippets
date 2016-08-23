@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Singleton</Title>
+      <Author>bromanv</Author>
+      <Description>Generates a singleton class, base of sixth version of singleton  on http://csharpindepth.com/Articles/General/Singleton.aspx#lazy </Description>
+      <HelpUrl>http://csharpindepth.com/Articles/General/Singleton.aspx#lazy</HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>singleton</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ClassName</ID>
+          <Type></Type>
+          <ToolTip>ClassName</ToolTip>
+          <Default>SingletonClass</Default>
+          <Function></Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Kind="type decl" Delimiter="$"><![CDATA[public class $ClassName$
+{
+	#region Singleton
+    	private static readonly Lazy<$ClassName$> lazy =
+        					    new Lazy<$ClassName$>(() => new $ClassName$());
+    
+        public static $ClassName$ Instance { get { return lazy.Value; } }
+
+        private $ClassName$(){}
+    #endregion
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

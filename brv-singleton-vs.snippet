@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Singleton</Title>
+      <Author>bromanv</Author>
+      <Description>Generates a singleton class, base of sixth version of singleton  on http://csharpindepth.com/Articles/General/Singleton.aspx#lazy</Description>
+      <HelpUrl>http://csharpindepth.com/Articles/General/Singleton.aspx#lazy</HelpUrl>      
+      <Shortcut>singleton</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ClassName</ID>
+          <Type />
+          <ToolTip>ClassName</ToolTip>
+          <Default>ClassName</Default>
+          <Function />
+        </Literal>
+      </Declarations>
+      <Code Language="VB" Kind="type decl" Delimiter="$"><![CDATA[Imports Microsoft.VisualBasic
+Public Class $ClassName$
+	#Region "singleton"
+	    Shared ReadOnly mInstance As Lazy(Of $ClassName$) = New Lazy(Of $$ClassName$$)(Function()
+                                    Return New $ClassName$()
+                                   End Function)
+
+        Private Sub New()
+        End Sub
+
+        Public Shared Property Instance() As $ClassName$
+              Get
+                   Return mInstance.Value
+              End Get
+        End Property
+      #End Region
+End Class]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
